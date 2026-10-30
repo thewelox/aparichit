@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APARICHIT</title>
+    <meta
+      name="description"
+      content="Anonymous friend-only judging board and live chat for APARICHIT."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-label="Skull emblem">☠</div>
+          <div>
+            <p class="eyebrow">friends only · anonymous</p>
+            <h1>APARICHIT</h1>
+          </div>
+        </div>
+
+        <div class="topbar-meta">
+          <div class="status-pill">live board</div>
+          <div class="tiny-badges">
+            <span>grim</span>
+            <span>skull</span>
+            <span>judge</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero glass-panel">
+        <div class="hero-copy">
+          <p class="section-tag">grim ledger</p>
+          <h2>Attach the name. Publish the verdict.</h2>
+          <p class="hero-text">
+            Add the person being judged, leave the opinion, and keep the room anonymous inside the circle.
+          </p>
+          <div class="hero-chips">
+            <span>friend-only</span>
+            <span>live room</span>
+            <span>no auth</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Skull illustration">
+          <div class="portrait-card skull-card">
+            <div class="skull-face">
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+              <span class="nose"></span>
+              <span class="mouth"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="dashboard">
+        <section class="panel people-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-tag">roster</p>
+              <h2>People</h2>
+            </div>
+            <span class="mini-indicator">no auth needed</span>
+          </div>
+
+          <form id="person-form" class="primary-form">
+            <div class="field-row">
+              <input
+                id="person-name"
+                name="personName"
+                type="text"
+                maxlength="60"
+                placeholder="Name of the person you're judging or posting about"
+                autocomplete="off"
+              />
+              <button type="submit">Add person</button>
+            </div>
+          </form>
+
+          <div id="people-list" class="people-grid" aria-live="polite"></div>
+        </section>
+
+        <aside class="panel chat-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-tag">room</p>
+              <h2>Live chat</h2>
+            </div>
+            <span id="online-count" class="mini-indicator">0 online</span>
+          </div>
+
+          <div id="chat-feed" class="chat-feed" aria-live="polite"></div>
+
+          <form id="chat-form" class="chat-form">
+            <input
+              id="chat-author"
+              name="chatAuthor"
+              type="text"
+              maxlength="30"
+              placeholder="Your name (optional)"
+              autocomplete="off"
+            />
+            <div class="chat-input-row">
+              <input
+                id="chat-message"
+                name="chatMessage"
+                type="text"
+                maxlength="240"
+                placeholder="Say something anonymously..."
+                autocomplete="off"
+              />
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
